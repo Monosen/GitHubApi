@@ -5,6 +5,7 @@ import "./App.css";
 import Home from "./views/Home/Home";
 import PageRepos from "./views/PageRepos/PageRepos";
 import PageFollowers from "./views/PageFollowers/PageFollowers";
+import PageError from "./views/PageError/PageError";
 
 function App() {
 	return (
@@ -13,14 +14,7 @@ function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/repositories/:code" element={<PageRepos />} />
 				<Route path="/followers/:code" element={<PageFollowers />} />
-				<Route
-					path="*"
-					element={
-						<main style={{ padding: "1rem" }}>
-							<p>There's nothing here!</p>
-						</main>
-					}
-				/>
+				<Route path="*" element={<PageError />} />
 			</Routes>
 		</BrowserRouter>
 	);
