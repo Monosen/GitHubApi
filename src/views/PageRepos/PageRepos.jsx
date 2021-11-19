@@ -11,12 +11,15 @@ const PageRepos = () => {
 
 	useEffect(() => {
 		const handlefetchData = async () => {
-			const response = await fetch(
-				`https://api.github.com/users/${code}/repos`
-			);
-			const result = await response.json();
-			setAllReposGitHub(result);
-			console.log(result);
+			try {
+				const response = await fetch(
+					`https://api.github.com/users/${code}/repos`
+				);
+				const result = await response.json();
+				setAllReposGitHub(result);
+			} catch (error) {
+				console.log(error);
+			}
 		};
 		handlefetchData();
 	}, [code]);

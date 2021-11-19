@@ -22,7 +22,6 @@ const Home = () => {
 				const reponse = await fetch(`https://api.github.com/users/${userName}`);
 				const result = await reponse.json();
 				setAllGithub(result);
-				console.log(result);
 				setLoader(false);
 			} catch (error) {
 				console.log(error);

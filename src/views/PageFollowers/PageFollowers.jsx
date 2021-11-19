@@ -20,8 +20,9 @@ const PageFollowers = () => {
 				);
 				const result = await response.json();
 				setAllFollwersGitHub(result);
-				console.log(result);
-			} catch (error) {}
+			} catch (error) {
+				console.log(error);
+			}
 		};
 		handlefetchData();
 	}, [code]);
