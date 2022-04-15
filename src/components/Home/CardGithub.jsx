@@ -5,8 +5,8 @@ const CardGithub = props => {
 		avatar,
 		name,
 		github,
-		github_name,
-		public_repos,
+		githubName,
+		publicRepos,
 		followers,
 		following,
 	} = props
@@ -20,15 +20,15 @@ const CardGithub = props => {
 				/>
 			</a>
 			<h2>{name}</h2>
-			<h3>{github_name}</h3>
+			<h3>{githubName}</h3>
 
 			<div className='flex justify-between mt-3 text-center'>
 				<p>
 					<span className='block text-xl font-bold'>Repositories:</span>
-					<span>{public_repos}</span>
+					<span>{publicRepos}</span>
 				</p>
 				<p>
-					<Link to={`/followers/${github_name}`}>
+					<Link to={`/followers/${githubName}`}>
 						<span className='block text-xl font-bold'>Followers:</span>
 						<span>{followers}</span>
 					</Link>
@@ -40,7 +40,7 @@ const CardGithub = props => {
 			</div>
 			<Link
 				className='block p-3 mt-5 border-2 hover:bg-black hover:text-white'
-				to={`/repositories/${github_name}`}
+				to={`/repositories/${githubName}`}
 			>
 				Repositories
 			</Link>

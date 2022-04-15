@@ -43,8 +43,8 @@ const Home = () => {
 							avatar={allGithub?.avatar_url}
 							name={allGithub?.name}
 							github={allGithub?.html_url}
-							github_name={allGithub?.login}
-							public_repos={allGithub?.public_repos}
+							githubName={allGithub?.login}
+							publicRepos={allGithub?.public_repos}
 							followers={allGithub?.followers}
 							following={allGithub?.following}
 						/>
