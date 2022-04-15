@@ -1,14 +1,12 @@
-import React from "react";
-
-//Styles
-import "./Loader.stryles.css";
+// Styles
+import './Loader.stryles.css'
 
 const Loader = () => {
 	return (
-		<div className="lds-circle">
+		<div className='lds-circle'>
 			<div></div>
 		</div>
-	);
-};
+	)
+}
 
-export default Loader;
+export default Loader

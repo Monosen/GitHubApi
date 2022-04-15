@@ -1,7 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
-const CardGithub = (props) => {
+const CardGithub = props => {
 	const {
 		avatar,
 		name,
@@ -10,12 +9,12 @@ const CardGithub = (props) => {
 		public_repos,
 		followers,
 		following,
-	} = props;
+	} = props
 	return (
-		<div className="w-96 text-center shadow-md border rounded-md px-4 py-5">
+		<div className='px-4 py-5 text-center border rounded-md shadow-md w-96'>
 			<a href={github}>
 				<img
-					className="rounded-full h-24 w-24 flex items-center justify-center m-auto"
+					className='flex items-center justify-center w-24 h-24 m-auto rounded-full'
 					src={avatar}
 					alt={name}
 				/>
@@ -23,30 +22,30 @@ const CardGithub = (props) => {
 			<h2>{name}</h2>
 			<h3>{github_name}</h3>
 
-			<div className="mt-3 flex justify-between text-center">
+			<div className='flex justify-between mt-3 text-center'>
 				<p>
-					<span className="text-xl font-bold block">Repositories:</span>
+					<span className='block text-xl font-bold'>Repositories:</span>
 					<span>{public_repos}</span>
 				</p>
 				<p>
 					<Link to={`/followers/${github_name}`}>
-						<span className="text-xl font-bold block">Followers:</span>
+						<span className='block text-xl font-bold'>Followers:</span>
 						<span>{followers}</span>
 					</Link>
 				</p>
 				<p>
-					<span className="text-xl font-bold block">Following:</span>
+					<span className='block text-xl font-bold'>Following:</span>
 					<span>{following}</span>
 				</p>
 			</div>
 			<Link
-				className="p-3 border-2 mt-5 block hover:bg-black hover:text-white"
+				className='block p-3 mt-5 border-2 hover:bg-black hover:text-white'
 				to={`/repositories/${github_name}`}
 			>
 				Repositories
 			</Link>
 		</div>
-	);
-};
+	)
+}
 
-export default CardGithub;
+export default CardGithub

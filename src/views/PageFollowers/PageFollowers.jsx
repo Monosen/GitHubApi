@@ -1,36 +1,36 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
-//Componentes
-import CardFollowers from "../../components/PageFollowers/CardFollowers";
-import NotFount from "../../components/custom/Api404/NotFount/NotFount";
+// Componentes
+import CardFollowers from '../../components/PageFollowers/CardFollowers'
+import NotFount from '../../components/custom/Api404/NotFount/NotFount'
 
-//Styles
-import "./PageFollowers.styles.css";
+// Styles
+import './PageFollowers.styles.css'
 
 const PageFollowers = () => {
-	const [AllFollwersGitHub, setAllFollwersGitHub] = useState([]);
-	const { code } = useParams();
+	const [AllFollwersGitHub, setAllFollwersGitHub] = useState([])
+	const { code } = useParams()
 
 	useEffect(() => {
 		const handlefetchData = async () => {
 			try {
 				const response = await fetch(
 					`https://api.github.com/users/${code}/followers`
-				);
-				const result = await response.json();
-				setAllFollwersGitHub(result);
+				)
+				const result = await response.json()
+				setAllFollwersGitHub(result)
 			} catch (error) {
-				console.log(error);
+				console.log(error)
 			}
-		};
-		handlefetchData();
-	}, [code]);
+		}
+		handlefetchData()
+	}, [code])
 
 	return (
-		<div className="boxCards flex flex-wrap justify-center mx-auto">
+		<div className='flex flex-wrap justify-center mx-auto boxCards'>
 			{AllFollwersGitHub?.length > 0 ? (
-				AllFollwersGitHub?.map((followers) => (
+				AllFollwersGitHub?.map(followers => (
 					<CardFollowers
 						key={followers.id}
 						name={followers.login}
@@ -42,13 +42,13 @@ const PageFollowers = () => {
 				<NotFount message={AllFollwersGitHub.message} />
 			) : (
 				AllFollwersGitHub?.length === 0 && (
-					<div className="h-screen flex justify-center items-center text-3xl">
+					<div className='flex items-center justify-center h-screen text-3xl'>
 						<h1>No Foollowers</h1>
 					</div>
 				)
 			)}
 		</div>
-	);
-};
+	)
+}
 
-export default PageFollowers;
+export default PageFollowers
