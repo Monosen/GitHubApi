@@ -4,11 +4,10 @@ import { useParams } from 'react-router-dom'
 // Componentes
 import CardFollowers from '../../components/PageFollowers/CardFollowers'
 import NotFount from '../../components/custom/Api404/NotFount/NotFount'
-
-// Styles
-import './PageFollowers.styles.css'
+import Loader from '../../components/Loader/Loader'
 
 const PageFollowers = () => {
+	const [loader, setLoader] = useState(true)
 	const [AllFollwersGitHub, setAllFollwersGitHub] = useState([])
 	const { code } = useParams()
 
@@ -20,6 +19,7 @@ const PageFollowers = () => {
 				)
 				const result = await response.json()
 				setAllFollwersGitHub(result)
+				setLoader(false)
 			} catch (error) {
 				console.log(error)
 			}
@@ -28,7 +28,12 @@ const PageFollowers = () => {
 	}, [code])
 
 	return (
-		<div className='flex flex-wrap justify-center mx-auto boxCards'>
+		<main className='flex flex-wrap justify-center mx-auto bg-blue-200'>
+			{loader && (
+				<div className='flex items-center justify-center h-screen text-3xl'>
+					<Loader />
+				</div>
+			)}
 			{AllFollwersGitHub?.length > 0 ? (
 				AllFollwersGitHub?.map(followers => (
 					<CardFollowers
@@ -41,13 +46,14 @@ const PageFollowers = () => {
 			) : AllFollwersGitHub?.message ? (
 				<NotFount message={AllFollwersGitHub.message} />
 			) : (
-				AllFollwersGitHub?.length === 0 && (
-					<div className='flex items-center justify-center h-screen text-3xl'>
+				AllFollwersGitHub?.length === 0 &&
+				!loader && (
+					<div className='flex items-center justify-center h-screen text-3xl text-white'>
 						<h1>No Foollowers</h1>
 					</div>
 				)
 			)}
-		</div>
+		</main>
 	)
 }
 

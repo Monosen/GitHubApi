@@ -30,28 +30,27 @@ const Home = () => {
 	}
 
 	return (
-		<main className='w-full h-screen'>
-			<div>
-				<SearchGitHub
-					handleUserName={handleUserName}
-					handleFetchData={handleFetchData}
-				/>
-				<div className='flex justify-center mt-20'>
-					{loader && <Loader />}
-					{allGithub.id && !loader ? (
-						<CardGithub
-							avatar={allGithub?.avatar_url}
-							name={allGithub?.name}
-							github={allGithub?.html_url}
-							githubName={allGithub?.login}
-							publicRepos={allGithub?.public_repos}
-							followers={allGithub?.followers}
-							following={allGithub?.following}
-						/>
-					) : (
-						allGithub?.message && <div>{allGithub.message}</div>
-					)}
-				</div>
+		<main className='flex flex-col items-center justify-center w-full h-screen bg-blue-200'>
+			<h1 className='text-white capitalize mb-14 text-7xl'>Github app</h1>
+			<SearchGitHub
+				handleUserName={handleUserName}
+				handleFetchData={handleFetchData}
+			/>
+			<div className='flex justify-center mt-10'>
+				{loader && <Loader />}
+				{allGithub.id && !loader ? (
+					<CardGithub
+						avatar={allGithub?.avatar_url}
+						name={allGithub?.name}
+						github={allGithub?.html_url}
+						githubName={allGithub?.login}
+						publicRepos={allGithub?.public_repos}
+						followers={allGithub?.followers}
+						following={allGithub?.following}
+					/>
+				) : (
+					allGithub?.message && <div>{allGithub.message}</div>
+				)}
 			</div>
 		</main>
 	)

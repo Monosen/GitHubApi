@@ -11,7 +11,7 @@ const CardGithub = props => {
 		following,
 	} = props
 	return (
-		<div className='px-4 py-5 text-center border rounded-md shadow-md w-96'>
+		<div className='px-4 py-5 text-center text-white bg-blue-500 border rounded-md shadow-md w-96'>
 			<a href={github}>
 				<img
 					className='flex items-center justify-center w-24 h-24 m-auto rounded-full'
@@ -19,7 +19,7 @@ const CardGithub = props => {
 					alt={name}
 				/>
 			</a>
-			<h2>{name}</h2>
+			<h2 className='mt-2 text-xl font-bold'>{name}</h2>
 			<h3>{githubName}</h3>
 
 			<div className='flex justify-between mt-3 text-center'>
@@ -39,7 +39,7 @@ const CardGithub = props => {
 				</p>
 			</div>
 			<Link
-				className='block p-3 mt-5 border-2 hover:bg-black hover:text-white'
+				className='block p-3 mt-5 bg-blue-300 border-2 border-blue-300 hover:bg-white hover:text-black'
 				to={`/repositories/${githubName}`}
 			>
 				Repositories
